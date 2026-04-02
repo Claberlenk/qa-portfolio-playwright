@@ -9,6 +9,8 @@
 
 End-to-end QA automation project covering **UI tests** (Playwright / saucedemo.com) and **API tests** (Requests / reqres.in), built with Python, Pytest, and Docker.
 
+---
+
 ## Project structure
 
 ```

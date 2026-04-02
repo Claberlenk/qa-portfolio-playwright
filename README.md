@@ -140,7 +140,3 @@ The `Jenkinsfile` defines a declarative pipeline with three stages:
 The pipeline uses the official `mcr.microsoft.com/playwright/python` Docker image as its agent.
 
 ---
-
-## Author
-
-**Claberlenk** — QA Automation Engineer portfolio project.

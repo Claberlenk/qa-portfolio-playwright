@@ -135,20 +135,73 @@ Always ask about every code snippet:
 2. "Какие альтернативные подходы существуют?"
 3. "Что произойдёт если убрать эту строку / изменить параметр?"
 
+### Base block structure (strict)
+
+Every topic block follows: **ВОПРОС → МОЙ ОТВЕТ → РАЗБОР → ПРАКТИКА → (опционально) РЕСУРС**
+
+Core principle: **теория без практики не засчитывается.**
+Every question must end with something the user wrote or did with their hands.
+
 ### Adaptive format rule
 
 After every 3–5 questions ask: "Удобен ли этот формат? Что изменить?"
 
 ### Topics to cover (all required)
 
-1. **Python for AQA** — types, comprehensions, OOP, decorators, exceptions, json/csv, regex, type hints, mutable vs immutable, live coding
-2. **Pytest deep** — fixtures/scope/yield, conftest hierarchy, parametrize, markers, plugins (xdist, allure, mock), hooks, antipatterns
-3. **Playwright Python deep** — Browser→Context→Page, locators, auto-wait, network interception, POM, parallel, tracing
-4. **API testing** — HTTP methods/status codes, requests vs httpx, auth (Bearer/Basic/OAuth2), schema validation (jsonschema/pydantic), mocking
-5. **Test design** — boundary values, equivalence classes, pairwise, decision tables, test pyramid, E2E vs integration vs unit
-6. **CI/CD** — GitHub Actions vs Jenkins, pipeline stages, artifacts, parallel jobs, fail-fast
-7. **Architecture** — POM, AAA pattern, fixture design, test isolation, data management
-8. **Soft skills** — "tell me about a hard bug you found", "how do you prioritize what to automate", "how do you convince devs to fix flaky tests"
+1. **Python for AQA**
+   - Types: list vs tuple vs set vs dict
+   - Comprehensions: list, dict, generator expressions
+   - OOP: classes, inheritance, `__init__`, `@property`, `@staticmethod`, `@classmethod`
+   - Decorators: what they are, write your own (incl. retry decorator)
+   - Exceptions: try/except/finally/else, custom Exception
+   - Files & data: json, csv, pathlib, os
+   - Regex (re): match vs search vs findall, groups
+   - Type hints: Optional, Union, List[str]
+   - Mutable vs immutable: why it matters in tests
+   - Live coding: reverse a string, find duplicates, parse nested JSON, write retry decorator
+
+2. **Pytest deep**
+   - Fixtures: syntax, scope (function/class/module/session), yield, autouse
+   - conftest.py: hierarchy, inheritance across directories
+   - parametrize: `@pytest.mark.parametrize`, ids, indirect
+   - Markers: skip/xfail/skipif, custom markers, registration in pytest.ini
+   - Plugins: pytest-xdist, allure-pytest, pytest-mock
+   - Hooks: pytest_configure, pytest_runtest_setup
+   - Run flags: -v, -k, -m, --tb, --reruns, -n
+   - Antipatterns: dependent tests, hardcoded data, god-fixture
+
+3. **Playwright Python deep**
+   - Architecture: Browser → BrowserContext → Page
+   - Locators: `locator()`, `get_by_role()`, `get_by_text()`, `get_by_placeholder()`, `get_by_test_id()` — when to use which
+   - Auto-wait: how it works, explicit waits (`wait_for_selector`, `expect`)
+   - Network interception: `route()`, mocking responses
+   - POM pattern: design, what belongs in page class vs test
+   - Parallel execution
+   - Tracing and debugging
+
+4. **API testing**
+   - HTTP methods / status codes
+   - requests vs httpx
+   - Auth: Bearer, Basic, OAuth2
+   - Schema validation: jsonschema, pydantic
+   - Mocking external APIs
+
+5. **Test design**
+   - Boundary values, equivalence classes, pairwise, decision tables
+   - Test pyramid: E2E vs integration vs unit
+   - When to automate vs not
+
+6. **CI/CD**
+   - GitHub Actions vs Jenkins
+   - Pipeline stages, artifacts, parallel jobs, fail-fast
+
+7. **Architecture**
+   - POM, AAA pattern, fixture design, test isolation, test data management
+
+8. **Soft skills**
+   - "Tell me about a hard bug you found"
+   - "How do you prioritize what to automate?"
+   - "How do you convince devs to fix flaky tests?"
 
 ### Web search directive
 

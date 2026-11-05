@@ -1,7 +1,7 @@
 # QA Automation Portfolio — Playwright + Pytest
 
-[![Tests](https://github.com/Claberlenk/qa-portfolio-playwright/actions/workflows/tests.yml/badge.svg)](https://github.com/Claberlenk/qa-portfolio-playwright/actions/workflows/tests.yml)
-[![Allure Report](https://img.shields.io/badge/Allure-live_report-00BCD4)](https://claberlenk.github.io/qa-portfolio-playwright/)
+[![Tests](https://github.com/sturostov/qa-portfolio-playwright/actions/workflows/tests.yml/badge.svg)](https://github.com/sturostov/qa-portfolio-playwright/actions/workflows/tests.yml)
+[![Allure Report](https://img.shields.io/badge/Allure-live_report-00BCD4)](https://sturostov.github.io/qa-portfolio-playwright/)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-1.50-green?logo=playwright&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-8.3-orange?logo=pytest&logoColor=white)
@@ -62,7 +62,7 @@ qa-portfolio-playwright/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/Claberlenk/qa-portfolio-playwright.git
+git clone https://github.com/sturostov/qa-portfolio-playwright.git
 cd qa-portfolio-playwright
 
 python -m venv .venv
@@ -135,7 +135,7 @@ docker run --rm --ipc=host qa-portfolio pytest -m ui
 
 ## CI/CD
 
-**GitHub Actions** (`.github/workflows/tests.yml`) runs the full suite on Python 3.12 on every push and pull request and weekly, then publishes the [Allure report](https://claberlenk.github.io/qa-portfolio-playwright/) from `main` to GitHub Pages.
+**GitHub Actions** (`.github/workflows/tests.yml`) runs the full suite on Python 3.12 on every push and pull request and weekly, then publishes the [Allure report](https://sturostov.github.io/qa-portfolio-playwright/) from `main` to GitHub Pages.
 
 The `Jenkinsfile` defines a declarative pipeline with three stages:
 

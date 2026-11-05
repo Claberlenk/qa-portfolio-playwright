@@ -90,6 +90,8 @@ pytest -m ui --browser firefox
 pytest --html=reports/report.html --self-contained-html
 ```
 
+> **API limit:** anonymous requests to reqres.in are limited to 40 per day per IP, and one full run uses most of that. If API tests fail with `429`, create a free key at [app.reqres.in](https://app.reqres.in) and run `export REQRES_API_KEY=<your key>`.
+
 ### 3. Run in Docker
 
 ```bash

@@ -17,7 +17,8 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Playwright 1.50 does not support the Ubuntu version behind ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -33,6 +34,8 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run tests
+        env:
+          REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: pytest --alluredir=allure-results
 
       - name: Generate Allure report

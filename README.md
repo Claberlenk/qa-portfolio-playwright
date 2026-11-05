@@ -1,11 +1,13 @@
 # QA Automation Portfolio — Playwright + Pytest
 
+[![Tests](https://github.com/Claberlenk/qa-portfolio-playwright/actions/workflows/tests.yml/badge.svg)](https://github.com/Claberlenk/qa-portfolio-playwright/actions/workflows/tests.yml)
+[![Allure Report](https://img.shields.io/badge/Allure-live_report-00BCD4)](https://claberlenk.github.io/qa-portfolio-playwright/)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-1.50-green?logo=playwright&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-8.3-orange?logo=pytest&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-CI-D24939?logo=jenkins&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 End-to-end QA automation project covering **UI tests** (Playwright / saucedemo.com) and **API tests** (Requests / reqres.in), built with Python, Pytest, and Docker.
 
@@ -88,6 +90,8 @@ pytest -m ui --browser firefox
 pytest --html=reports/report.html --self-contained-html
 ```
 
+> **API limit:** anonymous requests to reqres.in are limited to 40 per day per IP, and one full run uses most of that. If API tests fail with `429`, create a free key at [app.reqres.in](https://app.reqres.in) and run `export REQRES_API_KEY=<your key>`.
+
 ### 3. Run in Docker
 
 ```bash
@@ -131,11 +135,13 @@ docker run --rm --ipc=host qa-portfolio pytest -m ui
 
 ## CI/CD
 
+**GitHub Actions** (`.github/workflows/tests.yml`) runs the full suite on Python 3.12 on every push and pull request and weekly, then publishes the [Allure report](https://claberlenk.github.io/qa-portfolio-playwright/) from `main` to GitHub Pages.
+
 The `Jenkinsfile` defines a declarative pipeline with three stages:
 
 1. **Install dependencies** — `pip install`
 2. **API Tests** — runs `pytest -m api`, publishes JUnit XML
-3. **UI Tests** — runs `pytest -m ui`, publishes JUnit XML + Playwright HTML report
+3. **UI Tests** — runs `pytest -m ui`, publishes JUnit XML + pytest-html report
 
 The pipeline uses the official `mcr.microsoft.com/playwright/python` Docker image as its agent.
 

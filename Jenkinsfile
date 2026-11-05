@@ -34,6 +34,7 @@ pipeline {
                 sh '''
                     pytest tests/ui -m ui -v --tb=short \
                         --junitxml=reports/ui-results.xml \
+                        --html=reports/ui-report.html --self-contained-html \
                         --browser chromium
                 '''
             }
@@ -44,9 +45,9 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
-                        reportDir: 'playwright-report',
-                        reportFiles: 'index.html',
-                        reportName: 'Playwright Report'
+                        reportDir: 'reports',
+                        reportFiles: 'ui-report.html',
+                        reportName: 'UI Test Report'
                     ])
                 }
             }
